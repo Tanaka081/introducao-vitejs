@@ -1,0 +1,13 @@
+.atv{
+    color: blue;
+    margin-bottom: 20rem;
+}
+
+.p_atv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid black; */
+    padding: 20rem 5rem;
+    font-size: 2rem;
+}
