@@ -1,6 +1,16 @@
+/**
+ * @file   src\pages\exemplos\ex-05\index.jsx
+ * @author Ewerton
+ * @date   2026-04-14
+ * @desc   [Descrição do componente ou arquivo]
+ */
+
 import { useState } from 'react';
 
 export default function Exemplo05() {
+    // exemplo básico entrada de dados
+    // const [nome, setNome] = useState('');
+    // exemplo uso real
     const [formData, setFormData] = useState({ nome: '', email: '' });
 
     const handleSubmit = (e) => {
@@ -12,6 +22,15 @@ export default function Exemplo05() {
     return (
         <form onSubmit={handleSubmit} style={{ maxWidth: '400px' }}>
             <label htmlFor="user">Nome do Usuário:</label>
+            {/* exemplo básico entrada de dados */}
+            {/* <input
+                id="user"
+                type="text" 
+                placeholder='Insira seu nome aqui'
+                value={nome}                     
+                onChange={ e => setNome(e.target.value) }           
+            /> */}
+            {/* exemplo uso real */}
             <input
                 id="user"
                 type="text"
