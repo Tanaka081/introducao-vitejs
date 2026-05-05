@@ -9,32 +9,44 @@ import { useState } from 'react';
 
 import styles from './index.module.css';
 
-export default function Exemplo05() {
+export default function Atividade04() {
     // exemplo básico entrada de dados
     const [nome, setNome] = useState('');
+    const [quantidade, setQuantidade] = useState('');
     // exemplo uso real
     // const [formData, setFormData] = useState({ nome: '', email: '' }); 
     const [cadastros, setCadastros] = useState([]);
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        // console.log("Enviando para API:", formData);
-        // Aqui você faria um POST para sua API
-        setCadastros([...cadastros, nome])
-    };
+    e.preventDefault();
+
+    if (!nome || !quantidade) return;
+
+    setCadastros([...cadastros, `${quantidade}x ${nome}`]);
+
+    setNome('');
+    setQuantidade('');
+};
     
     return (
+        <div className= {styles.full}>
         <div className={styles.container}>
 
-            <h1>Exemplo 5 - Formulário</h1>
+            <h1>Atividade 4 - Lista de compra</h1>
 
             <form onSubmit={handleSubmit} className={styles.formulario}>
-                <label htmlFor="user">Nome do Usuário:</label>
-                {/* exemplo básico entrada de dados */}
+                
                 <input
-                    id="user"
+                    type="number"
+                    placeholder='QTD'
+                    value={quantidade}
+                    onChange={e => setQuantidade(e.target.value)}
+                />
+
+          
+                <input
                     type="text"
-                    placeholder='Insira seu nome aqui'
+                    placeholder='Insira algo para listar'
                     value={nome}
                     onChange={e => setNome(e.target.value)}
                 />
@@ -46,13 +58,18 @@ export default function Exemplo05() {
                     value={formData.nome}
                     onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
                 /> */}
-                <button type="submit">Enviar Cadastro</button>
+                <button type="submit">Listar</button>
             </form>
 
             <h2>Lista</h2>
             {
-                cadastros.map(item => <p key={item}>{item}</p>)
+              cadastros.map((item, index) => (
+                <div key={index} className={styles.item}>
+                    {item}
+                </div>
+                ))
             }
+        </div>
         </div>
     );
 }

@@ -21,6 +21,7 @@ function Home() {
                 <Link to="/atividade/1">Atividade 1 - Componente básico</Link>
                 <Link to="/atividade/2">Atividade 2 - Contador Botao</Link>
                 <Link to="/atividade/3">Atividade 3 - Uso de componentes</Link>
+                <Link to="/atividade/4">Atividade 4 - Lista de compra</Link>
             </div>
         </div>
     )
